@@ -11,8 +11,13 @@
 
 using namespace std;
 
-int main()
-{   
+int main(int argc,char * argv[])
+{  
+    if(argc != 2)
+    {
+        printf("Usage : %s <port> \n",argv[0]);
+        exit(1);
+    }
     //sever_socket
     int socketfd;
     if((socketfd = socket(AF_INET,SOCK_STREAM,0)) == -1) 
@@ -25,8 +30,7 @@ int main()
     memset(&servaddr,0,sizeof(servaddr));
 
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(atoi("2222"));
-    //servaddr.sin_addr.s_addr = inet_addr("192.168.222.129");
+    servaddr.sin_port = htons(atoi(argv[1]));
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 
     if(bind(socketfd,(sockaddr *)&servaddr,sizeof(servaddr)) != 0) 
