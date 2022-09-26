@@ -45,6 +45,7 @@ bool Client::Connect(const char * serverip,const int port)
         cout << temp<<endl;
         close(clientfd);
         //cout << inet_ntoa(serveraddr.sin_addr)<<endl;
+        return false;
     }
     return true;
 }

@@ -66,7 +66,6 @@ bool Server::Accept()
     //cout << "connecting..."<<endl;
     if((clientfd = accept(listenfd,(struct sockaddr*) &clientaddr,(socklen_t *)&clien_len)) < 0)
         return false;
-    //printf("The client %s has connectted!\n",inet_ntoa(clientaddr.sin_addr));
 
     return true;
 }

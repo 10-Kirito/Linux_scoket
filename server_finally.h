@@ -27,6 +27,7 @@ private:
 
     
 public:
+    
     struct sockaddr_in clientaddr[CLIENT_MAX];
     int client_socks[CLIENT_MAX];
     string names[CLIENT_MAX];
